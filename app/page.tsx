@@ -35,10 +35,12 @@ export default function Home() {
       },
       (index, query) => {
         console.error(`Erreur sur la requête ${index} : ${query}`);
+        if (index === config.queries.length - 1) {
+          setLoading(false);
+        }
       }
     );
   }
-
   return (
     <main className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-2xl mx-auto space-y-8">
@@ -103,5 +105,4 @@ export default function Home() {
 
       </div>
     </main>
-  );
-}
+  )}
